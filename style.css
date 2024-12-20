@@ -19,7 +19,6 @@ h1 {
 
 }
 
-
 .wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
@@ -49,6 +48,58 @@ h1 {
 
  }
 
+.upclose {
+    border-radius: 7%;
+    padding: 1em;
+    width: 20em;  
+    min-height: 10em;
+    background: rgba(250, 241, 234, 0.967);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.info {
+    display: none; 
+    align-self: start; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 8px; 
+}
+
+.info.visible {
+    display: block;
+}
+
+.cover p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.bookinfo {
+    font-family: 'Times New Roman', serif;
+    color: black;
+    margin-top: 1em;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+.upclose h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
 
 .cover-1 {
     background: linear-gradient(50deg, rgba(131, 25, 231, 0.911), rgba(255, 255, 255, 0));
@@ -248,64 +299,4 @@ h1 {
 .cover-8:hover::before {
     transform: scale(1.1);
     box-shadow: 0 0 15px #E7CDCD;
-}
-
-.line {
-    position: absolute;
-    justify-self: center;
-    align-self: center;
-    color: black;
-
-}
-
-.upclose {
-    padding: 1em;
-    width: 20em;  
-    min-height: 10em;
-    background: white;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-}
-
-.info {
-    display: none; 
-    align-self: start; 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 8px; 
-}
-
-.info.visible {
-    display: block;
-}
-
-.cover p {
-    font-size: 0.9em;
-    line-height: 1.4;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
-
-.bookinfo {
-    font-family: 'Times New Roman', serif;
-    color: black;
-    margin-top: 1em;
-    line-height: 1.4;
-    white-space: pre-wrap;
-}
-.upclose h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
 }

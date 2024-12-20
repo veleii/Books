@@ -68,7 +68,7 @@ async function populateBooks(): Promise<void> {
             }
         });
 
-        // Lägg till en stäng-funktion när man klickar utanför info-rutan
+    
         document.addEventListener('click', (e: MouseEvent) => {
             const infoSection = document.querySelector<HTMLElement>('.info');
             const upclose = document.querySelector<HTMLElement>('.upclose');
