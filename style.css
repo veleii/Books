@@ -72,8 +72,17 @@ h1 {
     padding: 1rem; 
  }
 
- h2, p {
+ h2 {
     color: white;
+    font-size: medium;
+    justify-self: flex-start;
+ }
+
+
+ p {
+    color: white;
+   font-size: small;
+   justify-content: center;
  }
 
 .upclose {
