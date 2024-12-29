@@ -86,11 +86,10 @@ h1 {
  }
 
 .upclose {
-    border-radius: 7%;
     padding: 1em;
     width: 20em;  
     min-height: 10em;
-    background: rgba(250, 241, 234, 0.967);
+    background: rgba(255, 255, 255, 0.952);
     position: absolute;
     top: 0;
     left: 50%;
@@ -111,7 +110,7 @@ h1 {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 8px; 
 }
-
+s
 .info.visible {
     display: block;
 }
@@ -128,12 +127,13 @@ h1 {
 
 .bookinfo {
     font-family: 'Times New Roman', serif;
-    color: black;
+    color: rgb(0, 0, 0);
     margin-top: 1em;
     line-height: 1.4;
     white-space: pre-wrap;
 }
 .upclose h3 {
+ 
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
