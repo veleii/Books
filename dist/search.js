@@ -15,38 +15,47 @@ export function searchBooks(query) {
     });
 }
 export function handleSearch() {
-    const searchInput = document.querySelector('.search-input');
+    const searchInput = document.querySelector('.my-input');
     const searchButton = document.querySelector('.search-button');
-    const covers = document.querySelectorAll('.cover');
-    if (searchInput && searchButton) {
-        searchButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            const query = searchInput.value.trim();
+    const infoSection = document.querySelector('.info');
+    const infoTitle = document.querySelector('.upclose h3');
+    const infoText = document.querySelector('.bookinfo');
+    const performSearch = () => __awaiter(this, void 0, void 0, function* () {
+        const query = searchInput === null || searchInput === void 0 ? void 0 : searchInput.value.trim();
+        if (query) {
             const filteredBooks = yield searchBooks(query);
-            covers.forEach(cover => {
-                const titleElement = cover.querySelector('h2');
-                const summaryElement = cover.querySelector('p');
-                if (titleElement)
-                    titleElement.textContent = '';
-                if (summaryElement)
-                    summaryElement.textContent = '';
-            });
-            filteredBooks.forEach((book, index) => {
-                if (covers[index]) {
-                    const titleElement = covers[index].querySelector('h2');
-                    const summaryElement = covers[index].querySelector('p');
-                    if (titleElement)
-                        titleElement.textContent = book.title;
-                    if (summaryElement)
-                        summaryElement.textContent = book.plot;
+            if (infoSection && infoTitle && infoText) {
+                const book = filteredBooks.find(b => b.title.toLowerCase() === query.toLowerCase());
+                if (book) {
+                    infoTitle.textContent = book.title;
+                    infoText.textContent = `
+                        Författare: ${book.author}
+                        Förlag: ${book.publisher}
+                        År: ${book.year}
+                        Antal sidor: ${book.pages}
+                        
+                        ${book.plot}
+                        
+                        Målgrupp: ${book.audience}
+                    `;
                 }
-            });
-            if (filteredBooks.length === 0) {
-                console.log('Inga böcker matchade din sökning.');
+                else {
+                    infoTitle.textContent = 'Ingen matchning';
+                    infoText.textContent = 'Det finns ingen bok som matchar din sökning.';
+                }
+                infoSection.style.display = 'block';
             }
-        }));
+        }
+    });
+    if (searchInput && searchButton) {
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
     }
 }
-handleSearch();
 export function handleSearchAndDisplay() {
     const searchInput = document.querySelector('.my-input');
     const searchButton = document.querySelector('.search-button');
@@ -78,4 +87,3 @@ export function handleSearchAndDisplay() {
         }));
     }
 }
-handleSearchAndDisplay();

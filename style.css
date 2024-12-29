@@ -53,24 +53,21 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 1rem; 
-    position: relative;
     justify-content: center; 
     max-width: 90%; 
 }
 
 .cover {
-    flex-wrap: wrap;
-    width: 10rem;
-    margin: 5px;
-    min-width: 13rem;
-    min-height: 10rem;
+    position: relative; /* Gör omslagen flexibla utan att de påverkas av andra element */
+    width: 13rem;
     height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; 
-    align-items: flex-end;  
-    padding: 1rem; 
- }
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 1rem;
+    margin: 5px;
+}
 
  h2 {
     color: white;
@@ -99,18 +96,20 @@ h1 {
 
 .info {
     display: none; 
-    align-self: start; 
-    position: fixed;
-    top: 50%;
+    position: fixed; /* Gör infosektionen fast på skärmen */
+    top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
     background: rgb(255, 255, 255);
     padding: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 8px; 
+    border-radius: 8px;
+    max-width: 80%; /* Begränsa bredden för bättre responsivitet */
+    width: auto;
+    height: auto;
 }
-s
+
 .info.visible {
     display: block;
 }
