@@ -58,7 +58,7 @@ h1 {
 }
 
 .cover {
-    position: relative; /* Gör omslagen flexibla utan att de påverkas av andra element */
+    position: relative;
     width: 13rem;
     height: 300px;
     display: flex;
@@ -96,7 +96,7 @@ h1 {
 
 .info {
     display: none; 
-    position: fixed; /* Gör infosektionen fast på skärmen */
+    position: fixed;
     top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%);
@@ -105,7 +105,7 @@ h1 {
     padding: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 8px;
-    max-width: 80%; /* Begränsa bredden för bättre responsivitet */
+    max-width: 80%;
     width: auto;
     height: auto;
 }

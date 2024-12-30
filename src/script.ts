@@ -1,7 +1,6 @@
 /* Detta är min main modul */
 import {fetchBooks} from "./api.js";
-import {searchBooks, handleSearch, handleSearchAndDisplay} from "./search.js";
-
+import {searchBooks, handleSearch} from "./search.js";
 
 async function populateBooks(): Promise<void> {
     try {
@@ -58,7 +57,5 @@ async function populateBooks(): Promise<void> {
     }
 }
 populateBooks();
-
 handleSearch();
-handleSearchAndDisplay();
 

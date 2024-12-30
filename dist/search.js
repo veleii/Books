@@ -20,11 +20,11 @@ export function handleSearch() {
     const infoSection = document.querySelector('.info');
     const infoTitle = document.querySelector('.upclose h3');
     const infoText = document.querySelector('.bookinfo');
-    const performSearch = () => __awaiter(this, void 0, void 0, function* () {
-        const query = searchInput === null || searchInput === void 0 ? void 0 : searchInput.value.trim();
-        if (query) {
-            const filteredBooks = yield searchBooks(query);
-            if (infoSection && infoTitle && infoText) {
+    if (searchInput && searchButton && infoSection && infoTitle && infoText) {
+        const performSearch = () => __awaiter(this, void 0, void 0, function* () {
+            const query = searchInput.value.trim();
+            if (query) {
+                const filteredBooks = yield searchBooks(query);
                 const book = filteredBooks.find(b => b.title.toLowerCase() === query.toLowerCase());
                 if (book) {
                     infoTitle.textContent = book.title;
@@ -45,45 +45,12 @@ export function handleSearch() {
                 }
                 infoSection.style.display = 'block';
             }
-        }
-    });
-    if (searchInput && searchButton) {
+        });
         searchButton.addEventListener('click', performSearch);
         searchInput.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
                 performSearch();
             }
         });
-    }
-}
-export function handleSearchAndDisplay() {
-    const searchInput = document.querySelector('.my-input');
-    const searchButton = document.querySelector('.search-button');
-    const infoSection = document.querySelector('.info');
-    const infoTitle = document.querySelector('.upclose h3');
-    const infoText = document.querySelector('.bookinfo');
-    if (searchInput && searchButton && infoSection && infoTitle && infoText) {
-        searchButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            const query = searchInput.value.trim();
-            const books = yield fetchBooks();
-            const book = books.find(b => b.title.toLowerCase() === query.toLowerCase());
-            if (book) {
-                infoTitle.textContent = book.title;
-                infoText.textContent = `
-                    Författare: ${book.author}
-                    Förlag: ${book.publisher}
-                    År: ${book.year}
-                    Antal sidor: ${book.pages}
-                    
-                    ${book.plot}
-                    
-                    Målgrupp: ${book.audience}
-                `;
-                infoSection.style.display = 'block';
-            }
-            else {
-                alert('Ingen bok matchade din sökning.');
-            }
-        }));
     }
 }

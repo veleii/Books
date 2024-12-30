@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 /* Detta är min main modul */
 import { fetchBooks } from "./api.js";
-import { handleSearch, handleSearchAndDisplay } from "./search.js";
+import { handleSearch } from "./search.js";
 function populateBooks() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -62,4 +62,3 @@ function populateBooks() {
 }
 populateBooks();
 handleSearch();
-handleSearchAndDisplay();
